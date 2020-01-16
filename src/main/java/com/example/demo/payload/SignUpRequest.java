@@ -2,8 +2,6 @@ package com.example.demo.payload;
 
 import javax.validation.constraints.*;
 
-
-
 public class SignUpRequest {
     @NotBlank
     @Size(min = 4, max = 40)
@@ -31,13 +29,11 @@ public class SignUpRequest {
     private String address;
 
 
-    @NotBlank
-    @Size(min = 10, max = 11)
     private int contact;
 
 
     public int getContact(){return contact;}
-    public void setContact(Integer contact) {
+    public void setContact(int contact) {
         this.contact = contact;
     }
 

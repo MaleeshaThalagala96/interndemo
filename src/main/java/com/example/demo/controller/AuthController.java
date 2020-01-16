@@ -1,3 +1,4 @@
+
 package com.example.demo.controller;
 
 import com.example.demo.exception.AppException;
@@ -83,10 +84,10 @@ public class AuthController {
 
         user.setPassword(passwordEncoder.encode(user.getPassword()));
 
-       Role userRole = roleRepository.findByName(RoleName.ROLE_USER)
+        Role userRole = roleRepository.findByName(RoleName.ROLE_USER)
                 .orElseThrow(() -> new AppException("User Role not set."));
 
-       user.setRoles(Collections.singleton(userRole));
+        user.setRoles(Collections.singleton(userRole));
 
         User result = userRepository.save(user);
 
@@ -97,3 +98,4 @@ public class AuthController {
         return ResponseEntity.created(location).body(new ApiResponse(true, "User registered successfully"));
     }
 }
+

@@ -34,6 +34,7 @@ class App extends Component {
         this.loadCurrentUser = this.loadCurrentUser.bind(this);
         this.handleLogin = this.handleLogin.bind(this);
 
+
         notification.config({
             placement: 'topRight',
             top: 70,
@@ -74,14 +75,14 @@ class App extends Component {
         this.props.history.push(redirectTo);
 
         notification[notificationType]({
-            message: 'Polling App',
+            message: 'Food delivery',
             description: description,
         });
     }
 
     handleLogin() {
         notification.success({
-            message: 'Polling App',
+            message: 'Food delivery',
             description: "You're successfully logged in.",
         });
         this.loadCurrentUser();
@@ -112,6 +113,7 @@ class App extends Component {
         render={(props) => <Profile isAuthenticated={this.state.isAuthenticated} currentUser={this.state.currentUser} {...props}  />}>
         </Route>
         <PrivateRoute authenticated={this.state.isAuthenticated} path="/poll/new" component={NewPoll} handleLogout={this.handleLogout}></PrivateRoute>
+
             <Route component={NotFound}></Route>
             </Switch>
             </div>

@@ -13,7 +13,8 @@ import {
     LICENSE_MIN_LENGTH,
     LICENSE_MAX_LENGTH,
     ADDRESS_MIN_LENGTH,
-    ADDRESS_MAX_LENGTH, CONTACT_MIN_LENGTH, CONTACT_MAX_LENGTH
+    ADDRESS_MAX_LENGTH,
+     CONTACT_MIN_LENGTH, CONTACT_MAX_LENGTH
 } from '../../constants';
 
 import { Form, Input, Button, notification } from 'antd';
@@ -74,8 +75,8 @@ class Signup extends Component {
             username: this.state.username.value,
             license:this.state.license.value,
             address:this.state.address.value,
-            contact:this.state.contact.value,
-            password: this.state.password.value
+            password: this.state.password.value,
+            contact:this.state.contact.value
         };
         signup(signupRequest)
             .then(response => {
@@ -96,9 +97,9 @@ class Signup extends Component {
         return !(this.state.name.validateStatus === 'success' &&
             this.state.username.validateStatus === 'success' &&
             this.state.email.validateStatus === 'success' &&
-                this.state.license.validateStatus === 'success'&&
-                this.state.address.validateStatus === 'success'&&
-                this.state.contact.validateStatus === 'success'&&
+            this.state.license.validateStatus === 'success'&&
+            this.state.address.validateStatus === 'success'&&
+            this.state.contact.validateStatus === 'success'&&
             this.state.password.validateStatus === 'success'
         );
     }
@@ -151,38 +152,47 @@ class Signup extends Component {
         </FormItem>
         <FormItem
         label="License"
+        hasFeedback
         validateStatus={this.state.license.validateStatus}
         help={this.state.license.errorMsg}>
             <Input
         size="large"
         name="license"
+        type="license"
         autoComplete="off"
         placeholder="Your license"
         value={this.state.license.value}
+        onBlur={this.validateLicenseAvailability}
         onChange={(event) => this.handleInputChange(event, this.validateLicense)} />
         </FormItem>
         <FormItem
         label="Address"
+        hasFeedback
         validateStatus={this.state.address.validateStatus}
         help={this.state.address.errorMsg}>
             <Input
         size="large"
         name="address"
+        type="address"
         autoComplete="off"
         placeholder="Your address"
         value={this.state.address.value}
+        onBlur={this.validateAddressAvailability}
         onChange={(event) => this.handleInputChange(event, this.validateAddress)} />
         </FormItem>
         <FormItem
         label="Contact"
+        hasFeedback
         validateStatus={this.state.contact.validateStatus}
         help={this.state.contact.errorMsg}>
             <Input
         size="large"
         name="contact"
+        type="contact"
         autoComplete="off"
         placeholder="Your contact"
         value={this.state.contact.value}
+        onBlur={this.validateContactAvailability}
         onChange={(event) => this.handleInputChange(event, this.validateContact)} />
         </FormItem>
         <FormItem

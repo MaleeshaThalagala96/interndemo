@@ -1,5 +1,9 @@
 //package com.example.demo.controller;
 //
+//import com.example.demo.payload.*;
+//import com.example.demo.repository.UserRepository;
+//import com.example.demo.security.CurrentUser;
+//import com.example.demo.security.UserPrincipal;
 //import com.example.polls.model.*;
 //import com.example.polls.payload.*;
 //import com.example.polls.repository.PollRepository;
@@ -9,6 +13,7 @@
 //import com.example.polls.security.UserPrincipal;
 //import com.example.polls.service.PollService;
 //import com.example.polls.util.AppConstants;
+//import org.apache.tomcat.jni.Poll;
 //import org.slf4j.Logger;
 //import org.slf4j.LoggerFactory;
 //import org.springframework.beans.factory.annotation.Autowired;
@@ -28,17 +33,17 @@
 //@RequestMapping("/api/polls")
 //public class PollController {
 //
-////    @Autowired
-////    private PollRepository pollRepository;
-////
-////    @Autowired
-////    private VoteRepository voteRepository;
+//    @Autowired
+//    private PollRepository pollRepository;
+//
+//    @Autowired
+//    private VoteRepository voteRepository;
 //
 //    @Autowired
 //    private UserRepository userRepository;
 //
-////    @Autowired
-////    private PollService pollService;
+//    @Autowired
+//    private PollService pollService;
 //
 //    private static final Logger logger = LoggerFactory.getLogger(PollController.class);
 //

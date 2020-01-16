@@ -47,10 +47,8 @@ class AppHeader extends Component {
             </Menu.Item>,
             <Menu.Item key="/signup">
               <Link to="/signup">Signup</Link>
-            </Menu.Item>,
-                <Menu.Item key="/profile">
-                <Link to="/profile">Profile</Link>
-                </Menu.Item>
+            </Menu.Item>
+
           ];
         }
 
@@ -58,7 +56,7 @@ class AppHeader extends Component {
             <Header className="app-header">
             <div className="container">
               <div className="app-title" >
-                <Link to="/">Polling App</Link>
+                <Link to="/">Food Delivery App</Link>
               </div>
               <Menu
                 className="app-menu"
@@ -76,7 +74,7 @@ class AppHeader extends Component {
 function ProfileDropdownMenu(props) {
   const dropdownMenu = (
     <Menu onClick={props.handleMenuClick} className="profile-dropdown-menu">
-      <Menu.Item key="user-info" className="dropdown-item" disabled>
+      <Menu.Item key="user-info" className="dropdown-item"disabled>
         <div className="user-full-name-info">
           {props.currentUser.name}
         </div>

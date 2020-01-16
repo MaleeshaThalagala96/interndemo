@@ -1,3 +1,4 @@
+
 package com.example.demo.model;
 
 
@@ -53,8 +54,7 @@ public class User extends DateAudit {
     @Size(max = 100)
     private String address;
 
-    @NotBlank
-    @Size(max = 10)
+
     private int contact;
 
     @ManyToMany(fetch = FetchType.LAZY)
@@ -67,7 +67,7 @@ public class User extends DateAudit {
 
     }
 
-    public User(String name, String username,String license, String email, String password,String address,Integer contact) {
+    public User(String name, String username, String license, String address, int contact, String email, String password) {
         this.name = name;
         this.username = username;
         this.email = email;
@@ -79,16 +79,6 @@ public class User extends DateAudit {
 
     }
 
-    public int getContact(){return contact;}
-    public void setContact(){this.contact=contact;}
-
-
-
-    public String getLicense(){return license;}
-    public void setLicense(){this.license=license;}
-
-    public String getAddress(){return address;}
-    public void setAddress(){this.address=address;}
 
 
     public Long getId() {
@@ -99,20 +89,20 @@ public class User extends DateAudit {
         this.id = id;
     }
 
-    public String getUsername() {
-        return username;
-    }
-
-    public void setUsername(String username) {
-        this.username = username;
-    }
-
     public String getName() {
         return name;
     }
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     public String getEmail() {
@@ -131,11 +121,35 @@ public class User extends DateAudit {
         this.password = password;
     }
 
-  public Set<Role> getRoles() {
-      return roles;
-   }
+    public String getLicense() {
+        return license;
+    }
+
+    public void setLicense(String license) {
+        this.license = license;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public int getContact() {
+        return contact;
+    }
+
+    public void setContact(int contact) {
+        this.contact = contact;
+    }
+
+    public Set<Role> getRoles() {
+        return roles;
+    }
 
     public void setRoles(Set<Role> roles) {
-       this.roles = roles;
+        this.roles = roles;
     }
 }

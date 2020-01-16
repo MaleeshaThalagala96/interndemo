@@ -79,26 +79,6 @@ export function checkEmailAvailability(email) {
     });
 }
 
-export function checkAddressAvailability(address) {
-    return request({
-        url: API_BASE_URL + "/user/checkAddressAvailability?address=" + address,
-        method: 'GET'
-    });
-}
-
-export function checkLicenseAvailability(license) {
-    return request({
-        url: API_BASE_URL + "/user/checkLicenseAvailability?license=" + license,
-        method: 'GET'
-    });
-}
-
-export function checkContactAvailability(contact) {
-    return request({
-        url: API_BASE_URL + "/user/checkContactAvailability?contact=" + contact,
-        method: 'GET'
-    });
-}
 export function getCurrentUser() {
     if(!localStorage.getItem(ACCESS_TOKEN)) {
         return Promise.reject("No access token set.");

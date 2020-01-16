@@ -7,16 +7,36 @@ public class UserSummary {
     private String username;
     private String name;
     private String license;
+    private int contact;
+    private String address;
 
 
-    public UserSummary(Long id, String username, String name,String license,String contact,String address) {
+    public UserSummary(Long id, String username, String name,String license,int contact,String address) {
         this.id = id;
         this.username = username;
         this.name = name;
+        this.address=address;
+        this.license=license;
+        this.contact=contact;
 
 
     }
 
+    public int getContact() {
+        return contact;
+    }
+
+    public void setContact(int contact) {
+        this.contact = contact;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
 
     public String getLicense(){return license;}
 

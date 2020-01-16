@@ -7,18 +7,22 @@ public class UserProfile {
     private String username;
     private String name;
     private String license;
-    private Instant joinedAt;
-    private Long pollCount;
-    private Long voteCount;
+    private String address;
+    private int contact;
+//    private Instant joinedAt;
+//    private Long pollCount;
+//    private Long voteCount;
 
-    public UserProfile(Long id, String username, String name,String license, Instant joinedAt, Long pollCount, Long voteCount) {
+    public UserProfile(Long id, String username, String name,String license, String address,int contact) {
         this.id = id;
         this.username = username;
         this.name = name;
         this.license=license;
-        this.joinedAt = joinedAt;
-        this.pollCount = pollCount;
-        this.voteCount = voteCount;
+        this.address=address;
+        this.contact=contact;
+//        this.joinedAt = joinedAt;
+//        this.pollCount = pollCount;
+//        this.voteCount = voteCount;
     }
 
     public Long getId() {
@@ -30,9 +34,25 @@ public class UserProfile {
     }
 
 
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public int getContact() {
+        return contact;
+    }
+
+    public void setContact(int contact) {
+        this.contact = contact;
+    }
+
     public String getLicense(){return license;}
 
-   public void setLicense(String license){this.license=license;}
+    public void setLicense(String license){this.license=license;}
 
     public String getUsername() {
         return username;
@@ -50,27 +70,27 @@ public class UserProfile {
         this.name = name;
     }
 
-    public Instant getJoinedAt() {
-        return joinedAt;
-    }
-
-    public void setJoinedAt(Instant joinedAt) {
-        this.joinedAt = joinedAt;
-    }
-
-    public Long getPollCount() {
-        return pollCount;
-    }
-
-    public void setPollCount(Long pollCount) {
-        this.pollCount = pollCount;
-    }
-
-    public Long getVoteCount() {
-        return voteCount;
-    }
-
-    public void setVoteCount(Long voteCount) {
-        this.voteCount = voteCount;
-    }
+//    public Instant getJoinedAt() {
+//        return joinedAt;
+//    }
+//
+//    public void setJoinedAt(Instant joinedAt) {
+//        this.joinedAt = joinedAt;
+//    }
+//
+//    public Long getPollCount() {
+//        return pollCount;
+//    }
+//
+//    public void setPollCount(Long pollCount) {
+//        this.pollCount = pollCount;
+//    }
+//
+//    public Long getVoteCount() {
+//        return voteCount;
+//    }
+//
+//    public void setVoteCount(Long voteCount) {
+//        this.voteCount = voteCount;
+//    }
 }

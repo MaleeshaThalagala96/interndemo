@@ -89,9 +89,9 @@ class Profile extends Component {
                                 <div className="user-summary">
                                     <div className="full-name">{this.state.user.name}</div>
                                     <div className="username">@{this.state.user.username}</div>
-                                    <div className="user-joined">
-                                        Joined {formatDate(this.state.user.joinedAt)}
-                                    </div>
+                                    <div className="contact">Contact : {this.state.user.contact}</div>
+                                    <div className="license">License :{this.state.user.license}</div>
+                                    <div className="address">Address :{this.state.user.address}</div>
                                 </div>
                             </div>
                             <div className="user-poll-details">    
