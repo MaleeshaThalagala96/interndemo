@@ -7,22 +7,32 @@ public class UserProfile {
     private String username;
     private String name;
     private String license;
-    private String address;
+    private String location;
     private int contact;
+    private String email;
 //    private Instant joinedAt;
 //    private Long pollCount;
 //    private Long voteCount;
 
-    public UserProfile(Long id, String username, String name,String license, String address,int contact) {
+    public UserProfile(Long id, String username, String name,String license, String location,int contact,String email) {
         this.id = id;
         this.username = username;
         this.name = name;
         this.license=license;
-        this.address=address;
+        this.location=location;
         this.contact=contact;
+        this.email=email;
 //        this.joinedAt = joinedAt;
 //        this.pollCount = pollCount;
 //        this.voteCount = voteCount;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public Long getId() {
@@ -34,12 +44,12 @@ public class UserProfile {
     }
 
 
-    public String getAddress() {
-        return address;
+    public String getLocation() {
+        return location;
     }
 
-    public void setAddress(String address) {
-        this.address = address;
+    public void setLocation(String location) {
+        this.location = location;
     }
 
     public int getContact() {

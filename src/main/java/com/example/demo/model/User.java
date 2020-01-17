@@ -52,7 +52,7 @@ public class User extends DateAudit {
 
     @NotBlank
     @Size(max = 100)
-    private String address;
+    private String location;
 
 
     private int contact;
@@ -67,13 +67,13 @@ public class User extends DateAudit {
 
     }
 
-    public User(String name, String username, String license, String address, int contact, String email, String password) {
+    public User(String name, String username, String license, String location, int contact, String email, String password) {
         this.name = name;
         this.username = username;
         this.email = email;
         this.password = password;
         this.license= license;
-        this.address=address;
+        this.location=location;
         this.contact=contact;
 
 
@@ -129,12 +129,12 @@ public class User extends DateAudit {
         this.license = license;
     }
 
-    public String getAddress() {
-        return address;
+    public String getLocation() {
+        return location;
     }
 
-    public void setAddress(String address) {
-        this.address = address;
+    public void setLocation(String location) {
+        this.location = location;
     }
 
     public int getContact() {

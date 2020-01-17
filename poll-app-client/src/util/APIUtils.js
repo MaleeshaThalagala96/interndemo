@@ -63,6 +63,8 @@ export function signup(signupRequest) {
         method: 'POST',
         body: JSON.stringify(signupRequest)
     });
+
+
 }
 
 export function checkUsernameAvailability(username) {

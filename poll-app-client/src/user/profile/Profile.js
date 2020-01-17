@@ -1,15 +1,16 @@
 import React, { Component } from 'react';
-import PollList from '../../poll/PollList';
+// import PollList from '../../poll/PollList';
 import { getUserProfile } from '../../util/APIUtils';
-import { Avatar, Tabs } from 'antd';
+import { Avatar } from 'antd';
 import { getAvatarColor } from '../../util/Colors';
-import { formatDate } from '../../util/Helpers';
+// import { formatDate } from '../../util/Helpers';
 import LoadingIndicator  from '../../common/LoadingIndicator';
 import './Profile.css';
 import NotFound from '../../common/NotFound';
 import ServerError from '../../common/ServerError';
+import {Link} from "react-router-dom";
 
-const TabPane = Tabs.TabPane;
+// const TabPane = Tabs.TabPane;
 
 class Profile extends Component {
     constructor(props) {
@@ -71,9 +72,9 @@ class Profile extends Component {
             return <ServerError />;
         }
 
-        const tabBarStyle = {
-            textAlign: 'center'
-        };
+        // const tabBarStyle = {
+        //     textAlign: 'center'
+        // };
 
         return (
             <div className="profile">
@@ -91,23 +92,11 @@ class Profile extends Component {
                                     <div className="username">@{this.state.user.username}</div>
                                     <div className="contact">Contact : {this.state.user.contact}</div>
                                     <div className="license">License :{this.state.user.license}</div>
-                                    <div className="address">Address :{this.state.user.address}</div>
+                                    <div className="location">Location :{this.state.user.location}</div>
                                 </div>
+                                <Link to="/editprofile">Edit</Link>
                             </div>
-                            <div className="user-poll-details">    
-                                <Tabs defaultActiveKey="1" 
-                                    animated={false}
-                                    tabBarStyle={tabBarStyle}
-                                    size="large"
-                                    className="profile-tabs">
-                                    <TabPane tab={`${this.state.user.pollCount} Polls`} key="1">
-                                        <PollList username={this.props.match.params.username} type="USER_CREATED_POLLS" />
-                                    </TabPane>
-                                    <TabPane tab={`${this.state.user.voteCount} Votes`}  key="2">
-                                        <PollList username={this.props.match.params.username} type="USER_VOTED_POLLS" />
-                                    </TabPane>
-                                </Tabs>
-                            </div>  
+
                         </div>  
                     ): null               
                 }

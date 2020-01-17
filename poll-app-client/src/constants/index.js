@@ -12,8 +12,8 @@ export const NAME_MAX_LENGTH = 40;
 export const LICENSE_MIN_LENGTH = 4;
 export const LICENSE_MAX_LENGTH = 40;
 
-export const ADDRESS_MIN_LENGTH = 4;
-export const ADDRESS_MAX_LENGTH = 40;
+export const LOCATION_MIN_LENGTH = 2;
+export const LOCATION_MAX_LENGTH = 40;
 
 export const USERNAME_MIN_LENGTH = 3;
 export const USERNAME_MAX_LENGTH = 15;

@@ -12,6 +12,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
+import java.util.List;
+
 @RestController
 @RequestMapping("/api")
 public class UserController {
@@ -34,9 +37,14 @@ public class UserController {
     @GetMapping("/user/me")
     @PreAuthorize("hasRole('USER')")
     public UserSummary getCurrentUser(@CurrentUser UserPrincipal currentUser) {
-        UserSummary userSummary = new UserSummary(currentUser.getId(), currentUser.getUsername(), currentUser.getName(), currentUser.getLicense(), currentUser.getContact(), currentUser.getAddress());
+        UserSummary userSummary = new UserSummary(currentUser.getId(), currentUser.getUsername(), currentUser.getName(), currentUser.getLicense(), currentUser.getContact(), currentUser.getLocation(),currentUser.getEmail());
         return userSummary;
 
+    }
+
+    @GetMapping("/users")
+    public List<User> getAllUsers() {
+        return userRepository.findAll();
     }
 
     @GetMapping("/users/{username}")
@@ -44,9 +52,43 @@ public class UserController {
         User user = userRepository.findByUsername(username)
                 .orElseThrow(() -> new ResourceNotFoundException("User", "username", username));
 
-        UserProfile userProfile = new UserProfile(user.getId(), user.getUsername(), user.getName(), user.getLicense(),user.getAddress(), user.getContact());
+        UserProfile userProfile = new UserProfile(user.getId(), user.getUsername(), user.getName(), user.getLicense(),user.getLocation(), user.getContact(),user.getEmail());
         return userProfile;
     }
+
+//    @PutMapping("/edit/{username}")
+//    public UpdatedUser getUpdated(@PathVariable(value = "username") String username) {
+//        //find relevant user
+//        User user = userRepository.findByUsername(username)
+//                .orElseThrow(() -> new ResourceNotFoundException("User", "username", username));
+//
+//
+//        UpdatedUser updatedUser = new UpdatedUser(user.getId(), user.getUsername(),
+//                user.getName(), user.getLicense(),user.getContact(),user.getAddress());
+////        UpdatedUser updatedProfile = userRepository.save(user);
+//        return updatedUser;
+//
+//    }
+
+
+    @PostMapping("/users/{username}")
+    public User updateUser(@PathVariable(value = "username") String username,
+                           @Valid @RequestBody User userDetails) {
+
+        User user = userRepository.findByUsername(username)
+                .orElseThrow(() -> new ResourceNotFoundException("User", "username", username));
+
+        user.setName(userDetails.getName());
+        user.setLocation(userDetails.getLocation());
+        user.setContact(userDetails.getContact());
+        user.setEmail(userDetails.getEmail());
+        user.setLicense(userDetails.getLicense());
+        user.setPassword(userDetails.getPassword());
+
+        User updatedUser = userRepository.save(user);
+        return updatedUser;
+    }
+
 
     @GetMapping("/user/checkUsernameAvailability")
     public UserIdentityAvailability checkUsernameAvailability(@RequestParam(value = "username") String username) {
@@ -60,23 +102,7 @@ public class UserController {
         return new UserIdentityAvailability(isAvailable);
     }
 }
-//}
-//
-//
-//
-//
-//    @GetMapping("/users/{username}")
-//    public UserProfile getUserProfile(@PathVariable(value = "username") String username) {
-//        User user = userRepository.findByUsername(username)
-//              .orElseThrow(() -> new ResourceNotFoundException("User", "username", username));
-//
-//     long pollCount = pollRepository.countByCreatedBy(user.getId());
-//       long voteCount = voteRepository.countByUserId(user.getId());
-//
-//       UserProfile userProfile = new UserProfile(user.getId(), user.getUsername(), user.getName(), user.getCreatedAt(), pollCount, voteCount);
-//
-//       return userProfile;
-//    }
+
 //
 //    @GetMapping("/users/{username}/polls")
 //    public PagedResponse<PollResponse> getPollsCreatedBy(@PathVariable(value = "username") String username,

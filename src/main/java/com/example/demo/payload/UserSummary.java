@@ -8,16 +8,18 @@ public class UserSummary {
     private String name;
     private String license;
     private int contact;
-    private String address;
+    private String location;
+    private String email;
 
 
-    public UserSummary(Long id, String username, String name,String license,int contact,String address) {
+    public UserSummary(Long id, String username, String name,String license,int contact,String location,String email) {
         this.id = id;
         this.username = username;
         this.name = name;
-        this.address=address;
+        this.location=location;
         this.license=license;
         this.contact=contact;
+        this.email=email;
 
 
     }
@@ -30,12 +32,12 @@ public class UserSummary {
         this.contact = contact;
     }
 
-    public String getAddress() {
-        return address;
+    public String getLocation() {
+        return location;
     }
 
-    public void setAddress(String address) {
-        this.address = address;
+    public void setLocation(String location) {
+        this.location = location;
     }
 
     public String getLicense(){return license;}

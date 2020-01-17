@@ -26,7 +26,7 @@ public class SignUpRequest {
 
     @NotBlank
     @Size(min = 6, max = 20)
-    private String address;
+    private String location;
 
 
     private int contact;
@@ -42,9 +42,9 @@ public class SignUpRequest {
         this.license = license;
     }
 
-    public String getAddress(){return address;}
-    public void setAddress(String address) {
-        this.address = address;
+    public String getLocation(){return location;}
+    public void setLocation(String location) {
+        this.location = location;
     }
 
     public String getName() {

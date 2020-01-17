@@ -20,7 +20,7 @@ public class UserPrincipal implements UserDetails {
 
     private String username;
 
-    private String address;
+    private String location;
 
     private String license;
 
@@ -34,14 +34,14 @@ public class UserPrincipal implements UserDetails {
 
     private Collection<? extends GrantedAuthority> authorities;
 
-    public UserPrincipal(Long id, String name, String username, String email, String password ,String license ,String address,int contact ,Collection<? extends GrantedAuthority> authorities) {
+    public UserPrincipal(Long id, String name, String username, String email, String password ,String license ,String location,int contact ,Collection<? extends GrantedAuthority> authorities) {
         this.id = id;
         this.name = name;
         this.username = username;
         this.email = email;
         this.password = password;
         this.license= license;
-        this.address=address;
+        this.location=location;
         this.contact=contact;
         this.authorities = authorities;
     }
@@ -58,7 +58,7 @@ public class UserPrincipal implements UserDetails {
                 user.getEmail(),
                 user.getPassword(),
                 user.getLicense(),
-                user.getAddress(),
+                user.getLocation(),
                 user.getContact(),
 
                 authorities
@@ -77,8 +77,8 @@ public class UserPrincipal implements UserDetails {
         return license;
     }
 
-    public String getAddress() {
-        return address;
+    public String getLocation() {
+        return location;
     }
 
 
