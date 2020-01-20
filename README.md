@@ -3,7 +3,7 @@
 
 Functionalities:
 
-Login
-Registration
-View Profile
+Login,
+Registration,
+View Profile,
 Edit (back-end only)
