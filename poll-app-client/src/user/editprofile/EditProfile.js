@@ -1,7 +1,7 @@
 // import React, { Component } from 'react';
 // import { editprofile, checkUsernameAvailability, checkEmailAvailability } from '../../util/APIUtils';
 // import './EditProfile.css';
-// import { Link } from 'react-router-dom';
+// // import { Link } from 'react-router-dom';
 // import {
 //     NAME_MIN_LENGTH,
 //     NAME_MAX_LENGTH,
@@ -12,9 +12,10 @@
 //     PASSWORD_MAX_LENGTH,
 //     LICENSE_MIN_LENGTH,
 //     LICENSE_MAX_LENGTH,
-//     ADDRESS_MIN_LENGTH,
-//     ADDRESS_MAX_LENGTH,
-//     CONTACT_MIN_LENGTH, CONTACT_MAX_LENGTH
+//     LOCATION_MIN_LENGTH,
+//     LOCATION_MAX_LENGTH,
+//     CONTACT_MIN_LENGTH,
+//     CONTACT_MAX_LENGTH
 // } from '../../constants';
 //
 // import { Form, Input, Button, notification } from 'antd';
@@ -39,7 +40,7 @@
 //             license:{
 //                 value:''
 //             },
-//             address:{
+//             location:{
 //                 value:''
 //             },
 //             contact:{
@@ -74,7 +75,7 @@
 //             email: this.state.email.value,
 //             username: this.state.username.value,
 //             license:this.state.license.value,
-//             address:this.state.address.value,
+//             location:this.state.location.value,
 //             password: this.state.password.value,
 //             contact:this.state.contact.value
 //         };
@@ -98,7 +99,7 @@
 //             this.state.username.validateStatus === 'success' &&
 //             this.state.email.validateStatus === 'success' &&
 //             this.state.license.validateStatus === 'success'&&
-//             this.state.address.validateStatus === 'success'&&
+//             this.state.location.validateStatus === 'success'&&
 //             this.state.contact.validateStatus === 'success'&&
 //             this.state.password.validateStatus === 'success'
 //         );
@@ -166,19 +167,19 @@
 //         onChange={(event) => this.handleInputChange(event, this.validateLicense)} />
 //         </FormItem>
 //         <FormItem
-//         label="Address"
+//         label="Location"
 //         hasFeedback
-//         validateStatus={this.state.address.validateStatus}
-//         help={this.state.address.errorMsg}>
+//         validateStatus={this.state.location.validateStatus}
+//         help={this.state.location.errorMsg}>
 //             <Input
 //         size="large"
-//         name="address"
-//         type="address"
+//         name="location"
+//         type="location"
 //         autoComplete="off"
-//         placeholder="Your address"
-//         value={this.state.address.value}
-//         onBlur={this.validateAddressAvailability}
-//         onChange={(event) => this.handleInputChange(event, this.validateAddress)} />
+//         placeholder="Your Location"
+//         value={this.state.location.value}
+//         onBlur={this.validateLocationAvailability}
+//         onChange={(event) => this.handleInputChange(event, this.validateLocation)} />
 //         </FormItem>
 //         <FormItem
 //         label="Contact"
@@ -242,16 +243,16 @@
 //         }
 //     }
 //
-//     validateAddress = (address) => {
-//         if(address.length < ADDRESS_MIN_LENGTH) {
+//     validateLocation = (location) => {
+//         if(location.length < LOCATION_MIN_LENGTH) {
 //             return {
 //                 validateStatus: 'error',
-//                 errorMsg: `Address is too short (Minimum ${ADDRESS_MIN_LENGTH} characters needed.)`
+//                 errorMsg: `Location is too short (Minimum ${LOCATION_MIN_LENGTH} characters needed.)`
 //             }
-//         } else if (address.length > ADDRESS_MAX_LENGTH) {
+//         } else if (address.length > LOCATION_MAX_LENGTH) {
 //             return {
 //                 validationStatus: 'error',
-//                 errorMsg: `Address is too long (Maximum ${ADDRESS_MAX_LENGTH} characters allowed.)`
+//                 errorMsg: `Location is too long (Maximum ${LOCATION_MAX_LENGTH} characters allowed.)`
 //             }
 //         } else {
 //             return {

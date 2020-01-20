@@ -67,6 +67,22 @@ export function signup(signupRequest) {
 
 }
 
+export function editprofile(username,signupRequest) {
+    return request({
+        url: API_BASE_URL + "/users/edit" + username,
+        method: 'POST',
+        body: JSON.stringify(signupRequest)
+    });
+
+
+}
+
+
+
+
+
+
+
 export function checkUsernameAvailability(username) {
     return request({
         url: API_BASE_URL + "/user/checkUsernameAvailability?username=" + username,

@@ -14,6 +14,7 @@ import NewPoll from '../poll/NewPoll';
 import Login from '../user/login/Login';
 import Signup from '../user/signup/Signup';
 import Profile from '../user/profile/Profile';
+//import EditProfile from "../user/editprofile/EditProfile";
 import AppHeader from '../common/AppHeader';
 import NotFound from '../common/NotFound';
 import LoadingIndicator from '../common/LoadingIndicator';

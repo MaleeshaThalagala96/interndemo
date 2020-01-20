@@ -10,10 +10,15 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import java.util.List;
+
+/**
+ * Created by Maleesha Thalagala
+ */
 
 @RestController
 @RequestMapping("/api")
@@ -21,6 +26,10 @@ public class UserController {
 
     @Autowired
     private UserRepository userRepository;
+
+
+    @Autowired
+    PasswordEncoder passwordEncoder;
 
     ////    @Autowired
 ////    private PollRepository pollRepository;
@@ -42,11 +51,13 @@ public class UserController {
 
     }
 
+    //Get all users
     @GetMapping("/users")
     public List<User> getAllUsers() {
         return userRepository.findAll();
     }
 
+    //User Profile
     @GetMapping("/users/{username}")
     public UserProfile getUserProfile(@PathVariable(value = "username") String username) {
         User user = userRepository.findByUsername(username)
@@ -56,22 +67,8 @@ public class UserController {
         return userProfile;
     }
 
-//    @PutMapping("/edit/{username}")
-//    public UpdatedUser getUpdated(@PathVariable(value = "username") String username) {
-//        //find relevant user
-//        User user = userRepository.findByUsername(username)
-//                .orElseThrow(() -> new ResourceNotFoundException("User", "username", username));
-//
-//
-//        UpdatedUser updatedUser = new UpdatedUser(user.getId(), user.getUsername(),
-//                user.getName(), user.getLicense(),user.getContact(),user.getAddress());
-////        UpdatedUser updatedProfile = userRepository.save(user);
-//        return updatedUser;
-//
-//    }
-
-
-    @PostMapping("/users/{username}")
+    //Update User
+    @PostMapping("/users/edit/{username}")
     public User updateUser(@PathVariable(value = "username") String username,
                            @Valid @RequestBody User userDetails) {
 
@@ -83,7 +80,7 @@ public class UserController {
         user.setContact(userDetails.getContact());
         user.setEmail(userDetails.getEmail());
         user.setLicense(userDetails.getLicense());
-        user.setPassword(userDetails.getPassword());
+        user.setPassword(passwordEncoder.encode(user.getPassword()));
 
         User updatedUser = userRepository.save(user);
         return updatedUser;
