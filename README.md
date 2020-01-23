@@ -6,4 +6,5 @@ Functionalities:
 Login,
 Registration,
 View Profile,
-Edit (back-end only)
+Edit (back-end only),
+Edit (front-end)
