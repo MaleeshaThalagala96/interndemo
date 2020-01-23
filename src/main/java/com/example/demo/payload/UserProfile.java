@@ -1,6 +1,5 @@
 package com.example.demo.payload;
 
-import java.time.Instant;
 
 public class UserProfile {
     private Long id;
@@ -22,8 +21,8 @@ public class UserProfile {
         this.location=location;
         this.contact=contact;
         this.email=email;
-//        this.joinedAt = joinedAt;
-//        this.pollCount = pollCount;
+     // this.joinedAt = joinedAt;
+       // this.pollCount = pollCount;
 //        this.voteCount = voteCount;
     }
 

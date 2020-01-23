@@ -6,6 +6,7 @@ import com.example.demo.repository.UserRepository;
 import com.example.demo.security.CurrentUser;
 import com.example.demo.security.UserPrincipal;
 
+//import com.example.demo.service.EditService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -37,9 +38,11 @@ public class UserController {
 ////    @Autowired
 ////    private VoteRepository voteRepository;
 ////
-////    @Autowired
-////    private PollService pollService;
-//
+/*
+    @Autowired
+    private EditService editService;
+*/
+
     private static final Logger logger = LoggerFactory.getLogger(UserController.class);
 
 
@@ -81,10 +84,11 @@ public class UserController {
         user.setEmail(userDetails.getEmail());
         user.setLicense(userDetails.getLicense());
         user.setPassword(passwordEncoder.encode(user.getPassword()));
-
         User updatedUser = userRepository.save(user);
         return updatedUser;
     }
+
+
 
 
     @GetMapping("/user/checkUsernameAvailability")
